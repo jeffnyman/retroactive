@@ -2,7 +2,7 @@
   "scripts": {
     "start": "npm run compile && npm run play",
     "server": "npm run compile && npx http-server ./dist & node -e \"require('child_process').exec(process.platform === 'win32' ? 'start http://127.0.0.1:8080/play.html' : 'open http://127.0.0.1:8080/play.html')\"",
-    "compile": "cd retroactive && inform retro.i6 ../dist/retro.ulx",
+    "compile": "cd retroactive && inform retro.i6",
     "play": "node -e \"require('child_process').exec(process.platform === 'win32' ? 'start dist/retro.ulx' : 'open dist/retro.ulx')\""
   }
 }

@@ -1,4 +1,5 @@
 !% -G
+!% +code_path=../dist
 !% +include_path=../lib-inform6-6.12.7,../lib-vorple
 
 Constant STORY "RETROACTIVE";
