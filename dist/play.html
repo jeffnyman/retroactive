@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Retroactive</title>
+    <link rel="stylesheet" href="./interpreter/roboto.css">
+    <link rel="stylesheet" href="./interpreter/jquery.powertip.css">
+    <link rel="stylesheet" href="./interpreter/toastr.css">
+    <link rel="stylesheet" href="./interpreter/vex.css">
+    <link rel="stylesheet" href="./interpreter/vex-theme-plain.css">
+    <link rel="stylesheet" href="./interpreter/haven.css">
+    <link rel="stylesheet" href="./interpreter/vorple.css">
+    <script src="./interpreter/vorple.min.js"></script>
+</head>
+
+<body>
+    <main id="vorple">
+        <div id="loader">
+            <h2 id="loader-message">Loading scripts</h2>
+            <div id="spinner">V</div>
+        </div>
+    </main>
+
+    <script>
+        vorple.options = {
+            autosave: false,
+            engineColors: false,
+            resource_paths: {
+                images: "resources/images/",
+                audio: "resources/audio/"
+            },
+            story: "retro.ulx"
+        };
+
+        vorple.debug.off();
+        vorple.init();
+    </script>
+</body>
+</html>

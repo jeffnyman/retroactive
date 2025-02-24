@@ -1,0 +1,38 @@
+!% -G
+!% +include_path=../lib-inform6-6.12.7,../lib-vorple
+
+Constant STORY "RETROACTIVE";
+Constant HEADLINE "^An Interactive Temporal Testing Adventure^";
+
+Include "vorple.h";
+
+Include "Parser";
+Include "VerbLib";
+
+Include "vorple-notifications.h";
+Include "vorple-multimedia.h";
+Include "vorple-modal-windows.h";
+
+[ Initialise;
+  VorpleInitialise();
+
+  if (isVorpleSupported() == 0) {
+    print "Vorple not supported.";
+  } else {
+    VorpleNotification("Vorple supported.");
+    VorpleShowModalWindow();
+    VorpleSetFocusToModalWindow();
+    VorpleImage("i6-light.png");
+    print "Welcome to ";
+    print (string) Story;
+    print ".";
+    VorpleSetOutputFocusMainWindow();
+  }
+
+  player.narrative_voice = 1;
+  player.narrative_tense = PAST_TENSE;
+];
+
+Include "Grammar";
+
+End;
