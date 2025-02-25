@@ -1,0 +1,30 @@
+Object annex "Security Annex"
+has light
+with
+  n_to analysis_lab_door
+;
+
+Object analysis_lab_door "door"
+has door openable static
+with
+  name 'door',
+
+  found_in annex analysis_lab_door,
+
+  door_dir [;
+    if (self in annex) return n_to; return s_to;
+  ],
+
+  door_to [;
+    if (self in annex) return analysis_lab_floor; return annex;
+  ],
+
+  when_open "The analyis lab door was open.",
+  when_closed "The analysis lab door was closed."
+;
+
+Object analysis_lab_floor "Analysis Lab Floor"
+has light
+with
+  s_to analysis_lab_door
+;
