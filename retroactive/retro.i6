@@ -17,13 +17,14 @@ Include "vorple-notifications.h";
 Include "vorple-multimedia.h";
 Include "vorple-modal-windows.h";
 
+Include ">doors.i6";
 Include ">lab.i6";
 
 [ Initialise;
   VorpleInitialise();
 
   if (isVorpleSupported() == 0) {
-    print "Vorple not supported.";
+    print "Vorple not supported.^";
   } else {
     VorpleNotification("Vorple supported.");
     VorpleShowModalWindow();
@@ -37,6 +38,8 @@ Include ">lab.i6";
 
   player.narrative_voice = 1;
   player.narrative_tense = PAST_TENSE;
+
+  InitDoors();
 
   location = annex;
 

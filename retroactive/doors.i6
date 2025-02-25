@@ -1,0 +1,49 @@
+Class Connector
+has door static
+with
+  sidea 0,
+  sideb 0,
+  dira 0,
+  dirb 0,
+
+  found_in 0 0,
+
+  door_dir [;
+    if (location == self.sidea) return self.dira; return self.dirb;
+  ],
+
+  door_to [;
+    if (location == self.sidea) return self.sideb; return self.sidea;
+  ]
+;
+
+[ InitDoors j o i;
+  objectloop (j ofclass Connector) {
+    ! print (object) j, "^";
+
+    objectloop (o in compass) {
+      ! print (object) o, "^";
+
+      i = o.door_dir;
+
+      if (j provides i) {
+        ! print (object) j, " provides ", i, " for ", (object) o, ".^";
+
+        j.sidea = j.i;
+        j.dirb = i;
+      }
+    };
+
+    objectloop (o in compass) {
+      i = o.door_dir;
+
+      if ((j provides i) && (j.dirb ~= i)) {
+        j.sideb = j.i;
+        j.dira = i;
+      }
+    };
+
+    j.&found_in --> 0 = j.sidea;
+    j.&found_in --> 1 = j.sideb;
+  };
+];
