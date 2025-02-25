@@ -1,6 +1,8 @@
 Object annex "Security Annex"
 has light
 with
+  with name 'security' 'annex',
+
   n_to analysis_lab_door
 ;
 
@@ -19,5 +21,8 @@ with
 Object analysis_lab_floor "Analysis Lab Floor"
 has light
 with
+  name 'analysis' 'lab' 'floor',
+  external_name 'analysis' 'lab' 'floor',
+
   s_to analysis_lab_door
 ;
