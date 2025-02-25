@@ -1,4 +1,35 @@
-Class Connector
+[ IsAWordIn w obj prop k l m;
+  k = obj.&prop; l = (obj.#prop) / 2;
+
+  for (m = 0 : m < l : m++)
+    if (w == k --> m) rtrue;
+  
+  rfalse;
+];
+
+Class DirDoor
+with
+  parse_name [ n word;
+    word = NextWordStopped();
+
+    while (word ~= -1) {
+      if (IsAWordIn(word, self, name) == 1) n++;
+      if (location == self.s_to && (word == 'north' or 'northern')) n++;
+      if (location == self.n_to && (word == 'south' or 'southern')) n++;
+      if (location == self.e_to && (word == 'west' or 'western')) n++;
+      if (location == self.w_to && (word == 'east' or 'eastern')) n++;
+      if (location == self.se_to && (word == 'northwest' or 'northeastern')) n++;
+      if (location == self.sw_to && (word == 'northeast' or 'northeastern')) n++;
+      if (location == self.ne_to && (word == 'southwest' or 'southwestern')) n++;
+      if (location == self.nw_to && (word == 'southeast' or 'southeastern')) n++;
+      word = NextWordStopped();
+    }
+
+    return n;
+  ]
+;
+
+Class Connector class DirDoor
 has door static
 with
   sidea 0,
