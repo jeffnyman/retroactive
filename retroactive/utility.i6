@@ -27,3 +27,9 @@
   print (PrintTime) proper_time;
   glk_set_window(gg_mainwin);
 ];
+
+[ ScoreSub;
+  if (deadflag == 0) {
+    "[ There is no score when trying to save the world. ]";
+  }
+];
