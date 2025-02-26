@@ -5,11 +5,8 @@ with
   n_to analysis_lab_door
 ;
 
-Connector analysis_lab_door "door"
-has openable
+SecureDoor analysis_lab_door "door"
 with
-  name 'door',
-
   n_to analysis_lab_floor,
   s_to annex,
 

@@ -1,2 +1,9 @@
 Class Room
 has light;
+
+! was AutomaticDoor
+Class SecureDoor class Connector
+has openable
+with
+  name 'door',
+;
