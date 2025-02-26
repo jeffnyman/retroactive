@@ -2,6 +2,14 @@ Room annex "Security Annex"
 with
   with name 'security' 'annex',
 
+  description [;
+    if (self hasnt visited) {
+      "I was in the security annex, which was very dark at that time of night. I was also in full view of the security desk near the north wall. With the guard out doing his patrol, this wasn't a problem for the moment. But only for the moment.^^Seeming to float above in the darkness was a small landing, which a set of stairs led up to. This was the way to the office floor. Another set of stairs led down to the operational lab area.";
+    }
+
+    "I was in the dark security annex with the vacated security desk.";
+  ],
+
   n_to analysis_lab_door
 ;
 
@@ -18,6 +26,14 @@ Room analysis_lab_floor "Analysis Lab Floor"
 with
   name 'analysis' 'lab' 'floor',
   external_name 'analysis' 'lab' 'floor',
+
+  description [;
+    if (self hasnt visited) {
+      "This was a long north-south corridor, much the same as those on the other floors, that connected two of the most important analysis labs for the experiment.";
+    }
+
+    "This was the analysis lab corridor.";
+  ],
 
   s_to analysis_lab_door
 ;
