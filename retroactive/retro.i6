@@ -8,6 +8,10 @@ Constant HEADLINE
   Written by Jeff Nyman.^
   Based on ~All Things Devours~ by Toby Ord.^";
 
+Global proper_time;
+Global arrival_time = ((4 * 60) + 17) * 12 + 0;
+
+Replace DrawStatusLine;
 Replace Refers;
 
 Include "vorple.h";
@@ -21,6 +25,7 @@ Include "vorple-modal-windows.h";
 
 Include "Doors";
 Include "Goto";
+Include ">time.i6";
 Include ">classes.i6";
 Include ">lab.i6";
 
@@ -46,6 +51,7 @@ Include ">lab.i6";
   InitDoors();
 
   location = annex;
+  proper_time = arrival_time;
 
   "^Game starts here.^";
 ];
@@ -53,5 +59,14 @@ Include ">lab.i6";
 Include "Grammar";
 
 Include ">verbs.i6";
+
+[ DrawStatusLine;
+  StatusLineHeight(gg_statuswin_size);
+  glk_set_window(gg_statuswin);
+  glk_window_clear(gg_statuswin);
+  glk_window_move_cursor(gg_statuswin, 0, 0);
+  print (PrintTime) proper_time;
+  glk_set_window(gg_mainwin);
+];
 
 End;

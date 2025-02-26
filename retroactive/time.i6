@@ -1,0 +1,20 @@
+[ PrintTime t;
+    print (t / 720),
+    ":",
+    ((t / 12) % 60) / 10,
+    (t / 12) % 10,
+    ":",
+    ((t % 12) / 2);
+
+    if ((t % 2) == 0) {
+      print "0";
+    } else {
+      print "5";
+    }
+       
+    if (t / (720 * 12) == 0) {
+      print " am";
+    } else {
+      print " pm";
+    }
+];
