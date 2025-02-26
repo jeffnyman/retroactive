@@ -18,3 +18,12 @@
       print " pm";
     }
 ];
+
+[ DrawStatusLine;
+  StatusLineHeight(gg_statuswin_size);
+  glk_set_window(gg_statuswin);
+  glk_window_clear(gg_statuswin);
+  glk_window_move_cursor(gg_statuswin, 0, 0);
+  print (PrintTime) proper_time;
+  glk_set_window(gg_mainwin);
+];

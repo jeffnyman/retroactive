@@ -25,7 +25,7 @@ Include "vorple-modal-windows.h";
 
 Include "Doors";
 Include "Goto";
-Include ">time.i6";
+Include ">utility.i6";
 Include ">classes.i6";
 Include ">lab.i6";
 
@@ -59,14 +59,5 @@ Include ">lab.i6";
 Include "Grammar";
 
 Include ">verbs.i6";
-
-[ DrawStatusLine;
-  StatusLineHeight(gg_statuswin_size);
-  glk_set_window(gg_statuswin);
-  glk_window_clear(gg_statuswin);
-  glk_window_move_cursor(gg_statuswin, 0, 0);
-  print (PrintTime) proper_time;
-  glk_set_window(gg_mainwin);
-];
 
 End;
