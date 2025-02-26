@@ -10,11 +10,19 @@ with
     "I was in the dark security annex with the vacated security desk.";
   ],
 
-  n_to analysis_lab_door
+  cant_go
+  "The only exits were the electric doors to the north and south, and the staircases up to the office floor or down to the experiment area.",
+
+  n_to analysis_lab_door,
+  u_to office_floor_entry,
+  d_to experiment_lab_entry
 ;
 
 SecureDoor analysis_lab_door "door"
 with
+  description
+  "A security door with tinted plate glass windows, through which could be seen the dim corridor for the analysis lab. On the right hand side was a slot for an ID card.",
+
   n_to analysis_lab_floor,
   s_to annex,
 
@@ -36,4 +44,18 @@ with
   ],
 
   s_to analysis_lab_door
+;
+
+Room office_floor_entry "Office Floor Entry"
+with
+  name 'office' 'entry' 'floor',
+
+  d_to annex
+;
+
+Room experiment_lab_entry "Experiment Lab Entry"
+with
+  name 'experiment' 'lab' 'entry',
+
+  u_to annex
 ;
