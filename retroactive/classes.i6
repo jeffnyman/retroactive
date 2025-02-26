@@ -5,5 +5,21 @@ has light;
 Class SecureDoor class Connector
 has openable
 with
-  name 'door',
+  name 'door' 'secure',
+
+  shoved,
+
+  before [;
+    Take, Pull, Push, PushDir:
+      if (self.shoved) {
+        "The door wasn't going anywhere.";
+      }
+
+      self.shoved = true;
+      
+      print_ret (The) self, " was firmly locked in place. No amount of effort on my part was going to change that.";
+      
+    Close:
+      "These doors closed of their own accord.";
+  ]
 ;
