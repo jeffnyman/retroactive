@@ -21,6 +21,7 @@ Include "vorple-modal-windows.h";
 
 Include "Doors";
 Include "Goto";
+Include ">classes.i6";
 Include ">lab.i6";
 
 [ Initialise;
